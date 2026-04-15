@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
 
-const API_BASE_URL = 'http://10.12.123.178:3000';
+const API_BASE_URL = 'https://docusense-ai-api.onrender.com';
 
 export default function App() {
   const [selectedFile, setSelectedFile] = useState(null);
