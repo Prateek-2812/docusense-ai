@@ -23,11 +23,18 @@ const getEmbedding = async (text) => {
   throw new Error('Failed to retrieve embedding values from response.');
 };
 
+const clearVectorStore = () => {
+  vectorStore.length = 0;
+};
+
+const getStoreSize = () => {
+  return vectorStore.length;
+};
+
 const processAndStoreChunks = async (chunks) => {
-  // Clear out old vector store if we want to overwrite on each new upload
-  // If we want to append, we just omit the following line:
-  // vectorStore.length = 0; 
-  
+  // Clear out old vector store on each new upload
+  clearVectorStore();
+
   for (const chunk of chunks) {
     try {
       const embedding = await getEmbedding(chunk);
@@ -74,5 +81,7 @@ module.exports = {
   getEmbedding,
   processAndStoreChunks,
   retrieveTopChunks,
-  cosineSimilarity
+  cosineSimilarity,
+  clearVectorStore,
+  getStoreSize
 };

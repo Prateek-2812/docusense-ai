@@ -12,4 +12,7 @@ router.post('/upload', upload.single('document'), documentController.uploadDocum
 // Q&A Endpoint
 router.post('/ask', documentController.askQuestion);
 
+// Status / Health Endpoint
+router.get('/status', documentController.getStatus);
+
 module.exports = router;

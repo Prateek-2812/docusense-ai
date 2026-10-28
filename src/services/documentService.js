@@ -34,7 +34,7 @@ const splitTextIntoChunks = (text) => {
            chunks.push(currentChunk.join('\n\n'));
            currentChunk = [];
            currentWordCount = 0;
-       }
+       } 
     } else {
        // Append to the current chunk
        currentChunk.push(trimmed);
